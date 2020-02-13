@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Fortune Cookie</title>
+</head>
+<body>
+    <div class="container1">
+        <img id="cookie" src="fortune_cookie.png" alt="Fortune Cookie">
+    </div>
+    <div class="container2">
+        <button id="showButton" class="button" onClick="changeImageOfElementID('cookie'); displayFortune()">Crack cookie!</button>
+        <script>
+        var flag = true;
+
+        function changeImageOfElementID(id){
+            if(flag) {
+                document.getElementById(id).src = 'fortune_cookie_cracked.png';
+                document.getElementById('showButton').innerText = 'Get new cookie!';
+                flag = false;
+            }
+            else {
+                document.getElementById(id).src = 'fortune_cookie.png';
+                document.getElementById('showButton').innerText = 'Crack cookie!';
+                flag = true;
+            }
+        }
+        var fortunes = [
+            "Today it's up to you to create the peacefulness you long for.",
+            "A friend asks only for your time not your money.",
+            "If you refuse to accept anything but the best, you very often get it.",
+            "A smile is your passport into the hearts of others.",
+            "A good way to keep healthy is to eat more Chinese food.",
+            "Your high-minded principles spell success.",
+            "Hard work pays off in the future, laziness pays off now.",
+            "Change can hurt, but it leads a path to something better.",
+            "Enjoy the good luck a companion brings you.",
+            "People are naturally attracted to you."
+        ];
+        function displayFortune(){
+            var randomNumber = Math.floor(Math.random() * (fortunes.length));
+            var x = document.getElementById("myDIV");
+            if (x.innerHTML == "") {
+                x.innerHTML = fortunes[randomNumber];
+            } else {
+                x.innerHTML = "";
+            }
+        }
+        </script>
+    </div>
+    <div id="myDIV"></div>
+</body>
+</html>
+
+
